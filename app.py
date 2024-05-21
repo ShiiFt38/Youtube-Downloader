@@ -51,7 +51,7 @@ def main():
                 type_message_txt.configure(text="Please select file type.", text_color="Red")
 
         except Exception as e:
-            url_message_txt.configure(text="Something is wrong with the url", text_color="Red")
+            url_message_txt.configure(text="Invalid URL", text_color="Red")
     def on_progress(stream, chunk, bytes_remaining):
         total_size = stream.filesize
         bytes_downloaded = total_size - bytes_remaining
@@ -85,7 +85,7 @@ def main():
 
 
     url_name = StringVar()
-    url_label = CTkLabel(form_frame, text="Enter youtube url: ")
+    url_label = CTkLabel(form_frame, text="Enter Youtube URL: ")
     url_txtbox = CTkEntry(form_frame, textvariable=url_name, width=400)
     url_txtbox.bind("<Return>", on_link_upload)
     url_message_txt = CTkLabel(form_frame, text="")
@@ -94,7 +94,7 @@ def main():
     url_message_txt.pack()
 
     file_type_frame = CTkFrame(form_frame, fg_color="transparent")
-    file_type_lbl = CTkLabel(file_type_frame, text="Choose file type: ")
+    file_type_lbl = CTkLabel(file_type_frame, text="Choose File Type: ")
     file_type_txt = ck.StringVar()
     file_type_mode = ck.CTkComboBox(file_type_frame, values=["Video", "Audio"], variable=file_type_txt)
     type_message_txt = CTkLabel(file_type_frame, text="")
